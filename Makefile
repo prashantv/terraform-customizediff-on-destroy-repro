@@ -25,3 +25,7 @@ apply: repro/.terraform.lock.hcl
 destroy: repro/.terraform.lock.hcl
 	cd repro && CUSTOMIZE_DIFF_PANIC=1 terraform destroy
 
+.PHONY: destroy-no-refresh
+destroy-no-refresh: repro/.terraform.lock.hcl
+	cd repro && CUSTOMIZE_DIFF_PANIC=1 terraform destroy -refresh=false
+
